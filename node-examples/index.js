@@ -8,13 +8,18 @@ let rectangle = require('./rectangle');
 function solveRectangle(l,b) {
   console.log('Solving for rectangle with l = ' + l + ' and b = ' + b)
 
-  if (l <= 0 || b<= 0) {
-    console.log('Rectangle dimensions sholud be greater than zero: l = ' + l + ', and b = ' + b)
-  }
-  else {
-    console.log('The area of the rectangle is ' + rectangle.area(l,b))
-    console.log('the perimeter of the rectangle is ' + rectangle.perimeter(l,b))
-  }
+  rectangle(l,b,(err, rect) => {
+    if(err) {
+      console.log('ERROR: ', err.message)
+    }
+    else {
+      console.log('The area of the rectangle of dimensions l = ' + l + ' and b= ' + b
+      + ' is ' + rect.area());
+      console.log('The perimeter of the rectangle of dimensions l = ' + l + ' and b= ' + b
+      + ' is ' + rect.perimeter());
+    }
+  })
+  console.log('This statement is after the call to rectangle()')
 }
 
 solveRectangle(2,4)
