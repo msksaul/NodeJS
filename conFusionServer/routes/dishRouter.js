@@ -41,7 +41,7 @@ dishRouter.route('/')
       .catch((err) => next(err))
   });
 
-  dishRouter.route('/:dishId')
+dishRouter.route('/:dishId')
   .get((req, res, next) => {
     Dishes.findById(req.params.dishId)
     .then((dish) => {
